@@ -1,23 +1,11 @@
-import pygame
-import sys
-import time
-import random
+import pygame, sys, random, os, re, pyttsx3, threading, random, curses, nltk
 from pygame.locals import *
 from time import *
-import curses
 from curses.ascii import isdigit
-import nltk
 from nltk.corpus import cmudict
-import _thread
-import os
-import re
-import pyttsx3
 import Speech2Text as s2t
-from multiprocessing import Process
-import threading
 
 d = cmudict.dict()
-
 
 def nsyl(word):
     return [len(list(y for y in x if isdigit(y[-1]))) for x in d[word.lower()]]
@@ -79,7 +67,7 @@ def animate(lastImage):
 # This is where the program starts up
 pygame.init()
 windowSurface = pygame.display.set_mode((259, 271), 0, 32)
-pygame.display.set_caption("Bounce")
+pygame.display.set_caption("Charlie")
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
