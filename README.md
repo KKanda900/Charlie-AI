@@ -1,3 +1,4 @@
+# Charlie AI
 ## Inspiration
 Let's face it, this pandemic has been a real struggle for everyone, especially those who miss interacting with others on a daily basis. In fact, the CDC asserts that because of social distancing, people are more likely to feel isolated, and in turn, cause stress and anxiety. We needed to find a solution that allows people to manage these symptoms and keep people happy during this lonesome time.
 ## What it does
