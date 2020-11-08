@@ -10,7 +10,7 @@ import webbrowser
 def convertClientAudio():
     r = sr.Recognizer()
     result = ""
-    with sr.Microphone(device_index=2) as source:
+    with sr.Microphone() as source:
         print("Say Something")
         audio = r.listen(source)
         try:

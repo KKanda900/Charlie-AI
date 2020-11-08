@@ -113,3 +113,15 @@ while "that is all charlie" not in clientString.lower():
             y.start()
             x.join()
             y.join()
+
+if "that is all charlie" in clientString:
+    paragraph = "Have a nice day!"  # response from robot
+    paragraph = re.sub('[!,;?]', '.', paragraph)
+    lastImage = img
+    for sentence in paragraph.split("."):
+        x = threading.Thread(target=s2t.speak, args=(sentence,)) 
+        x.start()
+        y = threading.Thread(target=animate, args=(lastImage,))
+        y.start()
+        x.join()
+        y.join()
