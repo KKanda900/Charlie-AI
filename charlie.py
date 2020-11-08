@@ -86,17 +86,30 @@ windowSurface.blit(img, (0, 0))
 pygame.display.update()
 # sleep(0.2)
 clientString = ""
+i = 0
 while "that is all charlie" not in clientString.lower():
-    clientString = s2t.convertClientAudio()
-    robotResponse = s2t.response(clientString)
-    paragraph = robotResponse  # response from robot
-    paragraph = re.sub('[!,;?]', '.', paragraph)
-    lastImage = img
-    for sentence in paragraph.split("."):
-        x = threading.Thread(target=s2t.speak, args=(sentence,)) 
-        x.start()
-        y = threading.Thread(target=animate, args=(lastImage,))
-        y.start()
-        x.join()
-        y.join()
-
+    if i == 0:
+        paragraph = "Hello my name is Charlie! How can I assist you?"  # response from robot
+        paragraph = re.sub('[!,;?]', '.', paragraph)
+        lastImage = img
+        for sentence in paragraph.split("."):
+            x = threading.Thread(target=s2t.speak, args=(sentence,)) 
+            x.start()
+            y = threading.Thread(target=animate, args=(lastImage,))
+            y.start()
+            x.join()
+            y.join()
+        i = i + 1
+    else:
+        clientString = s2t.convertClientAudio()
+        robotResponse = s2t.response(clientString)
+        paragraph = robotResponse  # response from robot
+        paragraph = re.sub('[!,;?]', '.', paragraph)
+        lastImage = img
+        for sentence in paragraph.split("."):
+            x = threading.Thread(target=s2t.speak, args=(sentence,)) 
+            x.start()
+            y = threading.Thread(target=animate, args=(lastImage,))
+            y.start()
+            x.join()
+            y.join()
